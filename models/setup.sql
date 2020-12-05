@@ -1,0 +1,6 @@
+CREATE TABLE grocery (
+id INTEGER PRIMARY KEY,
+groceryName TEXT NOT NULL,
+groceryCost DECIMAL NOT NULL,
+totalCost DECIMAL NOT NULL
+);
