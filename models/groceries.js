@@ -12,3 +12,16 @@ exports.add_grocery = async (groceryName, groceryCost) => {
     }
     return msg
 }
+
+// Get all groceries
+exports.get_all_groceries = async () => {
+    let stmnt = db.prepare('SELECT * FROM grocery')
+    let result
+    try {
+        result = await stmnt.all()
+    } catch (e) {
+        console.error(e.message)
+        return null
+    }
+    return result
+}

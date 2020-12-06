@@ -1,7 +1,7 @@
 const express = require("express");
 var router = express.Router();
 var init_model = require('../models/init')
-var grocery_model = require('../models/groceries')
+var groceries_model = require('../models/groceries')
 
 // GET API Base
 router.get('/', (req, res) => {
@@ -21,10 +21,10 @@ router.get('/init', async (req, res) => {
 });
 
 // POST new grocery
-router.post('/groceries', async (req, res) => {
+router.post('/grocery', async (req, res) => {
     let groceryName = req.body.groceryName
     let groceryCost = req.body.groceryCost
-    let added = await grocery_model.add_grocery(groceryName, groceryCost)
+    let added = await groceries_model.add_grocery(groceryName, groceryCost)
 
     if(added) {
         res.send({msg: "Grocery added to database successfully"})
@@ -33,5 +33,14 @@ router.post('/groceries', async (req, res) => {
     }
 })
 
+// Get all groceries
+router.get('/groceries', async (req, res) => {
+    let results = await groceries_model.get_all_groceries()
+    if(results) {
+        res.send(results)
+    } else {
+        res.send({msg: "Something went wrong."})
+    }
+})
 
 module.exports = router;

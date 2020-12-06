@@ -1,0 +1,20 @@
+<%- include('./parts/head') %>
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Grocery Name</th>
+        <th>Grocery Cost</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% groceries.forEach((g) => { %>
+        <tr>
+            <td><%= g.id%></td>
+            <td><%= g.groceryName%></td>
+            <td><%= g.groceryCost%></td>
+        </tr>
+    <% }) %>
+    </tbody>
+</table>
+<%- include('./parts/tail') %>
