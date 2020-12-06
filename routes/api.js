@@ -10,12 +10,21 @@ router.get('/', (req, res) => {
     })
 });
 
+router.get('/init', async (req, res) => {
+    let result = await init_model.init_DB()
+
+    if(result) {
+        res.send({msg: "Database has been set up!"})
+    } else {
+        res.send({msg: "Database encountered an error!"})
+    }
+});
+
 // POST new grocery
 router.post('/groceries', async (req, res) => {
     let groceryName = req.body.groceryName
     let groceryCost = req.body.groceryCost
-    let totalCost = req.body.totalCost
-    let added = await grocery_model.add_grocery(groceryName, groceryCost, totalCost)
+    let added = await grocery_model.add_grocery(groceryName, groceryCost)
 
     if(added) {
         res.send({msg: "Grocery added to database successfully"})
