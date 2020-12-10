@@ -1,0 +1,35 @@
+<%- include('./parts/head') %>
+<% if(msg.length > 0) {%>
+    <p class="error">
+        <%= msg %>
+    </p>
+<%}%>
+<center><h1>Grocery</h1></center>
+<form action="/grocery" METHOD="post">
+    <table style="border: none ;">
+        <tr>
+            <td>
+                Name of grocery
+            </td>
+
+            <td>
+                <input type ="text" id = "groceryName" name="groceryName" placeholder="Enter grocery">
+            </td>
+
+        </tr>
+        <tr>
+            <td>
+                Cost
+            </td>
+            <td>
+                <input type ="text" id="groceryCost" name="groceryCost" placeholder="Enter grocery price" >
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <input type="submit" value="Add Grocery">
+            </td>
+        </tr>
+    </table>
+</form>
+<%- include('./parts/tail') %>

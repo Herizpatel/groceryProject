@@ -1,20 +1,24 @@
 <%- include('./parts/head') %>
-<table border="1">
-    <thead>
-    <tr>
-        <th>ID</th>
-        <th>Grocery Name</th>
-        <th>Grocery Cost</th>
-    </tr>
-    </thead>
-    <tbody>
-    <% groceries.forEach((g) => { %>
+<center><h1>Grocery Lists</h1></center>
+<form action="">
+    <table border="1">
+        <thead>
         <tr>
-            <td><%= g.id%></td>
-            <td><%= g.groceryName%></td>
-            <td><%= g.groceryCost%></td>
+            <th>ID</th>
+            <th>Grocery Name</th>
+            <th>Grocery Cost</th>
         </tr>
-    <% }) %>
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+        <% groceries.forEach((g) => { %>
+            <tr>
+                <td><%= g.id%></td>
+                <td><%= g.groceryName%></td>
+                <td><%= g.groceryCost%></td>
+            </tr>
+        <% }) %>
+        </tbody>
+    </table>
+</form>
+
 <%- include('./parts/tail') %>
